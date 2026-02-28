@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category - EmpowerHer</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .category-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, #d4a5a5 0%, #c9929f 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .category-header h1 {
+            font-size: 36px;
+            margin: 0 0 10px 0;
+        }
+
+        .category-header p {
+            font-size: 16px;
+            margin: 0;
+            opacity: 0.95;
+        }
+
+        .category-emoji {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .filters-section {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 1.5px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+
+        .filter-btn:hover {
+            border-color: #d4a5a5;
+            background: #fff5f5;
+        }
+
+        .filter-btn.active {
+            background: #d4a5a5;
+            color: white;
+            border-color: #d4a5a5;
+        }
+
+        .products-section {
+            margin-bottom: 40px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card-full {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            cursor: pointer;
+        }
+
+        .product-card-full:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-image-section {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #fff5f5 0%, #fff9f9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #27ae60;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .product-badge.draft {
+            background: #f39c12;
+        }
+
+        .product-details {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin: 0 0 10px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-location {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .product-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            height: 40px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .product-info-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 12px;
+        }
+
+        .product-price-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #d4a5a5;
+        }
+
+        .product-quantity {
+            font-size: 12px;
+            color: #999;
+            margin-top: 2px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            color: #f39c12;
+        }
+
+        .delivery-time {
+            font-size: 12px;
+            color: #35a7ff;
+            background: #e3f2fd;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .contact-seller-btn {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #d4a5a5 0%, #c9929f 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            margin-top: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .contact-seller-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 165, 165, 0.3);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .empty-state-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .empty-state p {
+            font-size: 16px;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+
+            .category-header {
+                padding: 30px 20px;
+            }
+
+            .category-header h1 {
+                font-size: 28px;
+            }
+
+            .category-emoji {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h2 class="logo"><a href="index.html">🌸 EmpowerHer</a></h2>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#categories">Categories</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html" class="nav-cta">Join Community</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Category Header -->
+    <section class="section">
+        <div class="category-container">
+            <div class="category-header">
+                <div class="category-emoji" id="categoryEmoji">📦</div>
+                <h1 id="categoryTitle">Products</h1>
+                <p id="categoryDescription">Discover amazing products from our entrepreneurs</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-section">
+                <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+                <button class="filter-btn" onclick="filterProducts('active')">⭐ Active Only</button>
+                <button class="filter-btn" onclick="filterProducts('price-low')">💰 Price: Low to High</button>
+                <button class="filter-btn" onclick="filterProducts('price-high')">💰 Price: High to Low</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-section">
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>🌸 EmpowerHer</h3>
+                    <p>Empowering women entrepreneurs worldwide through education, community, and market access.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">f</a>
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="LinkedIn">in</a>
+                        <a href="#" title="Twitter">𝕏</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html#categories">Categories</a></li>
+                        <li><a href="index.html#stories">Success Stories</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Report Abuse</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 EmpowerHer. All rights reserved. | Made with 💜 for women entrepreneurs</p>
+                <p>Building a world where every woman entrepreneur can thrive</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Category data
+        const categoryData = {
+            'baking': {
+                emoji: '🎂',
+                name: 'Home Baking',
+                description: 'Fresh, homemade baked goods made with love'
+            },
+            'tailoring': {
+                emoji: '🧵',
+                name: 'Tailoring & Boutique',
+                description: 'Custom tailoring and exclusive boutique collections'
+            },
+            'hampers': {
+                emoji: '🎁',
+                name: 'Customized Gift Hampers',
+                description: 'Beautiful, personalized gift hampers for every occasion'
+            },
+            'skincare': {
+                emoji: '💅',
+                name: 'Organic Skincare',
+                description: 'Natural skincare products for healthy, glowing skin'
+            },
+            'eco': {
+                emoji: '♻️',
+                name: 'Eco-Friendly Products',
+                description: 'Sustainable and environmentally conscious products'
+            },
+            'handicrafts': {
+                emoji: '🎨',
+                name: 'Handicrafts',
+                description: 'Unique, artisanal handicraft items'
+            },
+            'events': {
+                emoji: '🎉',
+                name: 'Event Management',
+                description: 'Professional event planning and coordination services'
+            },
+            'plants': {
+                emoji: '🌿',
+                name: 'Indoor Plants & Decor',
+                description: 'Beautiful plants and home décor items'
+            },
+            'cloudkitchen': {
+                emoji: '👨‍🍳',
+                name: 'Cloud Kitchen Services',
+                description: 'Delicious food delivered to your doorstep'
+            }
+        };
+
+        let currentCategory = 'baking';
+        let allProducts = [];
+        let filteredProducts = [];
+
+        // Get category from URL
+        window.addEventListener('load', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category') || 'baking';
+            currentCategory = category;
+
+            // Set category header
+            if (categoryData[category]) {
+                document.getElementById('categoryEmoji').textContent = categoryData[category].emoji;
+                document.getElementById('categoryTitle').textContent = categoryData[category].name;
+                document.getElementById('categoryDescription').textContent = categoryData[category].description;
+            }
+
+            // Load products
+            loadProducts();
+            displayProducts();
+        });
+
+        function loadProducts() {
+            // Get products from localStorage
+            let stored = JSON.parse(localStorage.getItem('empowerher_products')) || [];
+
+            // Filter products by category
+            allProducts = stored.filter(p => p.category === currentCategory);
+
+            // Show empty state if no products
+            if (allProducts.length === 0) {
+                showEmptyState();
+            }
+        }
+
+        function displayProducts() {
+            const grid = document.getElementById('productsGrid');
+
+            if (allProducts.length === 0) {
+                showEmptyState();
+                return;
+            }
+
+            filteredProducts = [...allProducts];
+
+            let html = '';
+            filteredProducts.forEach(product => {
+                const priceDisplay = typeof product.price === 'number' ? `₹${product.price}` : product.price;
+
+                html += `
+                    <div class="product-card-full">
+                        <div class="product-image-section">
+                            ${product.icon || '📦'}
+                            <div class="product-badge ${product.status}">${product.status === 'active' ? '✓ Active' : '○ Draft'}</div>
+                        </div>
+                        <div class="product-details">
+                            <p class="product-title">${product.title}</p>
+                            <div class="product-location">📍 ${product.location}</div>
+                            <p class="product-description">${product.description}</p>
+                            <div class="delivery-time">🚚 ${formatDeliveryTime(product.deliveryTime)}</div>
+                            <div class="product-info-footer">
+                                <div class="product-price-section">
+                                    <div class="product-price">${priceDisplay}</div>
+                                    <div class="product-quantity">Stock: ${product.quantity}</div>
+                                </div>
+                                <div class="product-rating">
+                                    ⭐ 4.${Math.floor(Math.random() * 10)}/5
+                                </div>
+                            </div>
+                            <button class="contact-seller-btn" onclick="contactSeller('${product.title}')">💬 Contact Seller</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            grid.innerHTML = html;
+        }
+
+        function formatDeliveryTime(time) {
+            const timeMap = {
+                'same-day': '⚡ Same Day',
+                '1-day': '🚚 1-2 Days',
+                '3-5-days': '📦 3-5 Days',
+                'custom': '⏰ Custom'
+            };
+            return timeMap[time] || time;
+        }
+
+        function filterProducts(type) {
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter
+            if (type === 'all') {
+                filteredProducts = [...allProducts];
+            } else if (type === 'active') {
+                filteredProducts = allProducts.filter(p => p.status === 'active');
+            } else if (type === 'price-low') {
+                filteredProducts = allProducts.sort((a, b) => a.price - b.price);
+            } else if (type === 'price-high') {
+                filteredProducts = allProducts.sort((a, b) => b.price - a.price);
+            }
+
+            renderFilteredProducts();
+        }
+
+        function renderFilteredProducts() {
+            const grid = document.getElementById('productsGrid');
+
+            if (filteredProducts.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1;">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">📭</div>
+                            <p>No products found with current filters</p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            filteredProducts.forEach(product => {
+                const priceDisplay = typeof product.price === 'number' ? `₹${product.price}` : product.price;
+
+                html += `
+                    <div class="product-card-full">
+                        <div class="product-image-section">
+                            ${product.icon || '📦'}
+                            <div class="product-badge ${product.status}">${product.status === 'active' ? '✓ Active' : '○ Draft'}</div>
+                        </div>
+                        <div class="product-details">
+                            <p class="product-title">${product.title}</p>
+                            <div class="product-location">📍 ${product.location}</div>
+                            <p class="product-description">${product.description}</p>
+                            <div class="delivery-time">🚚 ${formatDeliveryTime(product.deliveryTime)}</div>
+                            <div class="product-info-footer">
+                                <div class="product-price-section">
+                                    <div class="product-price">${priceDisplay}</div>
+                                    <div class="product-quantity">Stock: ${product.quantity}</div>
+                                </div>
+                                <div class="product-rating">
+                                    ⭐ 4.${Math.floor(Math.random() * 10)}/5
+                                </div>
+                            </div>
+                            <button class="contact-seller-btn" onclick="contactSeller('${product.title}')">💬 Contact Seller</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            grid.innerHTML = html;
+        }
+
+        function showEmptyState() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = `
+                <div style="grid-column: 1/-1;">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🌟</div>
+                        <p><strong>No Products Yet</strong></p>
+                        <p>Be the first to add a product in this category!</p>
+                        <p style="color: #999; font-size: 14px; margin-top: 20px;">Products will appear here as sellers add them</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function contactSeller(productName) {
+            alert(`✓ Contact Seller\n\nMessage sent to seller of "${productName}"\n\n(Backend integration coming soon!)`);
+        }
+
+        // Mobile hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        if (hamburger) {
+            hamburger.addEventListener('click', function () {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+
+</html>

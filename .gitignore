@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Database
+*.db
+*.sqlite
+*.db-journal
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build outputs
+dist/
+build/
+out/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.bak
+
+# OS
+Thumbs.db
+.DS_Store
+*.exe
+*.dmg
+
+# Testing
+coverage/
+.nyc_output/
+
+# IDE
+*.sublime-project
+*.sublime-workspace

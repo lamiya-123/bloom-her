@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - EmpowerHer</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .register-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .register-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-row.full {
+            grid-template-columns: 1fr;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1.5px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #d4a5a5;
+            box-shadow: 0 0 0 3px rgba(212, 165, 165, 0.1);
+        }
+
+        .form-error {
+            color: #e74c3c;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-error.show {
+            display: block;
+        }
+
+        .password-strength {
+            margin-top: 8px;
+            height: 4px;
+            background: #eee;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .strength-bar.weak {
+            width: 33%;
+            background: #e74c3c;
+        }
+
+        .strength-bar.medium {
+            width: 66%;
+            background: #f39c12;
+        }
+
+        .strength-bar.strong {
+            width: 100%;
+            background: #27ae60;
+        }
+
+        .strength-text {
+            font-size: 12px;
+            margin-top: 4px;
+            color: #666;
+        }
+
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 25px 0;
+        }
+
+        .terms-checkbox input[type="checkbox"] {
+            width: auto;
+            margin-top: 3px;
+            cursor: pointer;
+        }
+
+        .terms-checkbox label {
+            margin: 0;
+            font-weight: normal;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .terms-checkbox a {
+            color: #d4a5a5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .terms-checkbox a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #d4a5a5 0%, #c9929f 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 165, 165, 0.3);
+        }
+
+        .btn-register:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .login-link a {
+            color: #d4a5a5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .benefits-section {
+            background: linear-gradient(135deg, #fff5f5 0%, #fff9f9 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+
+        .benefits-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .benefit-item::before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .register-form {
+                padding: 30px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h2 class="logo"><a href="index.html">🌸 EmpowerHer</a></h2>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="register.html" class="nav-cta">Join Community</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Registration Section -->
+    <section class="section">
+        <div class="register-container">
+            <div class="register-form">
+                <div class="form-header">
+                    <h1>Create Your Account</h1>
+                    <p>Join EmpowerHer and start your entrepreneurial journey today</p>
+                </div>
+
+                <div class="success-message" id="successMessage">
+                    ✓ Account created successfully! Redirecting to dashboard...
+                </div>
+
+                <form id="registrationForm">
+                    <!-- Personal Information Section -->
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span style="color: #e74c3c;">*</span></label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name"
+                                required>
+                            <div class="form-error" id="fullNameError"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address <span style="color: #e74c3c;">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                            <div class="form-error" id="emailError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span style="color: #e74c3c;">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required
+                                pattern="[0-9]{10}">
+                            <div class="form-error" id="phoneError"></div>
+                        </div>
+                    </div>
+
+                    <!-- Business Information Section -->
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label for="businessCategory">Business Category <span
+                                    style="color: #e74c3c;">*</span></label>
+                            <select id="businessCategory" name="businessCategory" required>
+                                <option value="">-- Select a category --</option>
+                                <option value="baking">🎂 Home Baking</option>
+                                <option value="tailoring">🧵 Tailoring & Boutique</option>
+                                <option value="hampers">🎁 Customized Gift Hampers</option>
+                                <option value="skincare">💅 Organic Skincare</option>
+                                <option value="eco">♻️ Eco-Friendly Products</option>
+                                <option value="handicrafts">🎨 Handicrafts</option>
+                                <option value="events">🎉 Event Management</option>
+                                <option value="plants">🌿 Indoor Plants & Decor</option>
+                                <option value="cloudkitchen">👨‍🍳 Cloud Kitchen Services</option>
+                            </select>
+                            <div class="form-error" id="businessCategoryError"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="businessName">Business Name <span style="color: #e74c3c;">*</span></label>
+                            <input type="text" id="businessName" name="businessName" placeholder="Your business name"
+                                required>
+                            <div class="form-error" id="businessNameError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location (City) <span style="color: #e74c3c;">*</span></label>
+                            <input type="text" id="location" name="location" placeholder="Your city" required>
+                            <div class="form-error" id="locationError"></div>
+                        </div>
+                    </div>
+
+                    <!-- Security Section -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password">Password <span style="color: #e74c3c;">*</span></label>
+                            <input type="password" id="password" name="password" placeholder="Create a strong password"
+                                required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                            <div class="password-strength">
+                                <div class="strength-bar" id="strengthBar"></div>
+                            </div>
+                            <div class="strength-text" id="strengthText"></div>
+                            <div class="form-error" id="passwordError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password <span style="color: #e74c3c;">*</span></label>
+                            <input type="password" id="confirmPassword" name="confirmPassword"
+                                placeholder="Confirm your password" required>
+                            <div class="form-error" id="confirmPasswordError"></div>
+                        </div>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">
+                            I agree to EmpowerHer's <a href="#">Terms & Conditions</a> and <a href="#">Privacy
+                                Policy</a>
+                        </label>
+                        <div class="form-error" id="termsError"></div>
+                    </div>
+
+                    <button type="submit" class="btn-register">Create Account & Start Your Journey</button>
+
+                    <div class="login-link">
+                        Already have an account? <a href="login.html">Sign In</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="benefits-section">
+                <h3>What You Get When You Join EmpowerHer</h3>
+                <div class="benefits-list">
+                    <div class="benefit-item">Access to 50,000+ women entrepreneurs</div>
+                    <div class="benefit-item">Expert-led training programs</div>
+                    <div class="benefit-item">Direct marketplace for sales</div>
+                    <div class="benefit-item">Personalized mentorship support</div>
+                    <div class="benefit-item">Marketing and branding tools</div>
+                    <div class="benefit-item">Community events & networking</div>
+                    <div class="benefit-item">Financial planning resources</div>
+                    <div class="benefit-item">Lifetime member support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>🌸 EmpowerHer</h3>
+                    <p>Empowering women entrepreneurs worldwide through education, community, and market access.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">f</a>
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="LinkedIn">in</a>
+                        <a href="#" title="Twitter">𝕏</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html#categories">Categories</a></li>
+                        <li><a href="index.html#stories">Success Stories</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Report Abuse</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 EmpowerHer. All rights reserved. | Made with 💜 for women entrepreneurs</p>
+                <p>Building a world where every woman entrepreneur can thrive</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize demo account in localStorage
+        function initializeDemoAccount() {
+            const allUsers = JSON.parse(localStorage.getItem('empowerher_users')) || [];
+            const demoExists = allUsers.find(u => u.email === 'demo@empowerher.com');
+
+            if (!demoExists) {
+                allUsers.push({
+                    fullName: 'Demo User',
+                    email: 'demo@empowerher.com',
+                    phone: '9876543210',
+                    businessCategory: 'baking',
+                    businessName: 'Demo Baking',
+                    location: 'Mumbai',
+                    password: 'Demo@123'
+                });
+                localStorage.setItem('empowerher_users', JSON.stringify(allUsers));
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', initializeDemoAccount);
+
+        // Password strength checker
+        const passwordInput = document.getElementById('password');
+        const strengthBar = document.getElementById('strengthBar');
+        const strengthText = document.getElementById('strengthText');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+
+        passwordInput.addEventListener('input', function () {
+            const password = this.value;
+            const strength = checkPasswordStrength(password);
+
+            if (strength === 'weak') {
+                strengthBar.className = 'strength-bar weak';
+                strengthText.textContent = 'Weak - Use uppercase, numbers, and special characters';
+            } else if (strength === 'medium') {
+                strengthBar.className = 'strength-bar medium';
+                strengthText.textContent = 'Medium - Add more variety to your password';
+            } else if (strength === 'strong') {
+                strengthBar.className = 'strength-bar strong';
+                strengthText.textContent = 'Strong password';
+            }
+        });
+
+        function checkPasswordStrength(password) {
+            let strength = 0;
+
+            if (password.length >= 8) strength++;
+            if (/[a-z]/.test(password)) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/\d/.test(password)) strength++;
+            if (/[@$!%*?&]/.test(password)) strength++;
+
+            if (strength <= 2) return 'weak';
+            if (strength <= 3) return 'medium';
+            return 'strong';
+        }
+
+        // Form validation and submission
+        const form = document.getElementById('registrationForm');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Clear previous errors
+            const errorElements = document.querySelectorAll('.form-error');
+            errorElements.forEach(el => el.classList.remove('show'));
+
+            // Validate form
+            let isValid = true;
+
+            // Validate Full Name
+            const fullName = document.getElementById('fullName').value.trim();
+            if (!fullName || fullName.length < 2) {
+                showError('fullNameError', 'Please enter a valid full name');
+                isValid = false;
+            }
+
+            // Validate Email
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                showError('emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+
+            // Validate Phone
+            const phone = document.getElementById('phone').value.trim();
+            if (!phone || !/^\d{10}$/.test(phone)) {
+                showError('phoneError', 'Please enter a valid 10-digit phone number');
+                isValid = false;
+            }
+
+            // Validate Business Category
+            const businessCategory = document.getElementById('businessCategory').value;
+            if (!businessCategory) {
+                showError('businessCategoryError', 'Please select a business category');
+                isValid = false;
+            }
+
+            // Validate Business Name
+            const businessName = document.getElementById('businessName').value.trim();
+            if (!businessName || businessName.length < 2) {
+                showError('businessNameError', 'Please enter a valid business name');
+                isValid = false;
+            }
+
+            // Validate Location
+            const location = document.getElementById('location').value.trim();
+            if (!location || location.length < 2) {
+                showError('locationError', 'Please enter a valid location');
+                isValid = false;
+            }
+
+            // Validate Password
+            const password = document.getElementById('password').value;
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!password || !passwordRegex.test(password)) {
+                showError('passwordError', 'Password must be at least 8 characters with uppercase, lowercase, number, and special character');
+                isValid = false;
+            }
+
+            // Validate Confirm Password
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (!confirmPassword || confirmPassword !== password) {
+                showError('confirmPasswordError', 'Passwords do not match');
+                isValid = false;
+            }
+
+            // Validate Terms
+            const termsCheckbox = document.getElementById('terms');
+            if (!termsCheckbox.checked) {
+                showError('termsError', 'You must agree to the terms and conditions');
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Show success message
+                document.getElementById('successMessage').classList.add('show');
+
+                // Store user data in session
+                const userData = {
+                    fullName: fullName,
+                    email: email,
+                    phone: phone,
+                    businessCategory: businessCategory,
+                    businessName: businessName,
+                    location: location,
+                    password: password // Store password for login validation
+                };
+
+                // Get existing users array from localStorage
+                let allUsers = JSON.parse(localStorage.getItem('empowerher_users')) || [];
+
+                // Check if user already exists
+                const userExists = allUsers.find(u => u.email === email);
+                if (!userExists) {
+                    allUsers.push(userData);
+                    localStorage.setItem('empowerher_users', JSON.stringify(allUsers));
+                }
+
+                // Store in sessionStorage for dashboard
+                sessionStorage.setItem('empowerher_logged_in', 'true');
+                sessionStorage.setItem('empowerher_user', email);
+                sessionStorage.setItem('empowerher_name', fullName);
+                sessionStorage.setItem('empowerher_category', businessCategory);
+                sessionStorage.setItem('empowerher_business_name', businessName);
+                sessionStorage.setItem('empowerher_location', location);
+                sessionStorage.setItem('empowerher_phone', phone);
+
+                // Also store in localStorage for persistence (legacy)
+                localStorage.setItem('empowerher_user_data', JSON.stringify(userData));
+
+                // Simulate form submission and redirect after delay
+                setTimeout(function () {
+                    window.location.href = 'dashboard.html';
+                }, 2000);
+            }
+        });
+
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.classList.add('show');
+        }
+
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpowerHer - Women Entrepreneurship Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h2 class="logo">🌸 EmpowerHer</h2>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="#why">Why Us</a></li>
+                    <li><a href="#stories">Success Stories</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html" class="nav-cta">Join Community</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Empower Your Dreams, Build Your Business</h1>
+            <p>
+                Transform your passion into profit. Join thousands of women entrepreneurs
+                building sustainable, home-based businesses with our support and community.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn primary" id="startJourney">Start Your Journey</button>
+                <button class="btn secondary" id="exploreBtn">Explore Opportunities</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Categories Section -->
+    <section id="categories" class="section">
+        <div class="container">
+            <h2 class="section-title">Business Categories</h2>
+            <p class="section-subtitle">
+                Choose from 9 low-investment, high-potential home-based businesses
+            </p>
+
+            <div class="categories-grid">
+
+                <div class="category-card" onclick="openDetails('baking')">
+                    <div class="card-emoji">🎂</div>
+                    <h3>Home Baking</h3>
+                    <p class="rating">⭐ 4.8/5 (245 businesses)</p>
+                    <p class="price-range">₹5,000 - ₹20,000</p>
+                    <button class="view-details">View Details</button>
+                </div>
+
+                <div class="category-card" onclick="openDetails('tailoring')">
+                    <div class="card-emoji">🧵</div>
+                    <h3>Tailoring & Boutique</h3>
+                    <p class="rating">⭐ 4.9/5 (312 businesses)</p>
+                    <p class="price-range">₹8,000 - ₹30,000</p>
+                    <button class="view-details">View Details</button>
+                </div>
+
+                <div class="category-card" onclick="openDetails('hampers')">
+                    <div class="card-emoji">🎁</div>
+                    <h3>Customized Gift Hampers</h3>
+                    <p class="rating">⭐ 4.7/5 (189 businesses)</p>
+                    <p class="price-range">₹3,000 - ₹15,000</p>
+                    <button class="view-details">View Details</button>
+                </div>
+
+                <div class="category-card" onclick="openDetails('skincare')">
+                    <div class="card-emoji">💅</div>
+                    <h3>Organic Skincare</h3>
+                    <p class="rating">⭐ 4.8/5 (267 businesses)</p>
+                    <p class="price-range">₹6,000 - ₹25,000</p>
+                    <button class="view-details">View Details</button>
+                </div>
+
+                <div class="category-card" onclick="openDetails('eco')">
+                    <div class="card-emoji">♻️</div>
+                    <h3>Eco-Friendly Products</h3>
+                    <p class="rating">⭐ 4.6/5 (156 businesses)</p>
+                    <p class="price-range">₹4,000 - ₹18,000</p>
+                    <button class="view-details">View Details</button>
+                </div>
+
+                <div class="category-card" onclick="openDetails('handicrafts')">
+                    <div class="card-emoji">🎨</div>
+                    <h3>Handicrafts</h3>
+                    <p class="rating">⭐ 4.7/5 (203 businesses)</p>
+                    <p class="price-range">₹5,000 - ₹22,000</p>
+                    <button class="view-details">View Details</button>
+                </div>
+
+                <div class="category-card" onclick="openDetails('events')">
+                    <div class="card-emoji">🎉</div>
+                    <h3>Event Management</h3>
+                    <p class="rating">⭐ 4.9/5 (298 businesses)</p>
+                    <p class="price-range">₹10,000 - ₹40,000</p>
+                    <button class="view-details">View Details</button>
+                </div>
+
+                <div class="category-card" onclick="openDetails('plants')">
+                    <div class="card-emoji">🌿</div>
+                    <h3>Indoor Plants & Decor</h3>
+                    <p class="rating">⭐ 4.8/5 (278 businesses)</p>
+                    <p class="price-range">₹4,000 - ₹16,000</p>
+                    <button class="view-details">View Details</button>
+                </div>
+
+                <div class="category-card" onclick="openDetails('cloudkitchen')">
+                    <div class="card-emoji">👨‍🍳</div>
+                    <h3>Cloud Kitchen Services</h3>
+                    <p class="rating">⭐ 4.9/5 (334 businesses)</p>
+                    <p class="price-range">₹12,000 - ₹45,000</p>
+                    <button class="view-details">View Details</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview Section (Why Us) -->
+    <section id="why" class="section about-preview">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>Why Choose EmpowerHer?</h2>
+                    <p>We're not just a platform—we're your complete partner in entrepreneurship.</p>
+
+                    <div class="why-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">📚</div>
+                            <h3>Expert Training</h3>
+                            <p>Learn from successful women entrepreneurs with structured, easy-to-follow courses</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">👥</div>
+                            <h3>Active Community</h3>
+                            <p>Connect, collaborate, and grow with 50,000+ women entrepreneurs</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">🛠️</div>
+                            <h3>Ready-Made Tools</h3>
+                            <p>Access templates, marketing materials, and business resources</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">💼</div>
+                            <h3>Market Access</h3>
+                            <p>Sell directly through our platform and reach thousands of customers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <div class="placeholder-img">
+                        <p>🌸 Building Dreams Together</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section id="stories" class="section success-stories">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <p class="section-subtitle">Real women, real success, real transformation</p>
+
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="avatar">👩</div>
+                        <div class="story-info">
+                            <h3>Priya Sharma</h3>
+                            <p>Home Baking Business</p>
+                        </div>
+                    </div>
+                    <p class="story-text">
+                        "Started with ₹8,000 and a passion for baking. Now I earn ₹50,000-60,000 monthly!
+                        EmpowerHer's training and support made all the difference."
+                    </p>
+                    <div class="story-stats">
+                        <span>⭐ 4.9 Rating</span>
+                        <span>📈 12 months</span>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="avatar">👩</div>
+                        <div class="story-info">
+                            <h3>Anjali Desai</h3>
+                            <p>Tailoring & Boutique</p>
+                        </div>
+                    </div>
+                    <p class="story-text">
+                        "From a traditional tailor to running a thriving online boutique. The community support
+                        and marketing tools helped me reach customers across India!"
+                    </p>
+                    <div class="story-stats">
+                        <span>⭐ 4.8 Rating</span>
+                        <span>📈 18 months</span>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="avatar">👩</div>
+                        <div class="story-info">
+                            <h3>Radhika Patel</h3>
+                            <p>Organic Skincare</p>
+                        </div>
+                    </div>
+                    <p class="story-text">
+                        "Never thought my skincare recipes would become a full business! With EmpowerHer,
+                        I scaled to ₹1 lakh+ monthly revenue in just 15 months."
+                    </p>
+                    <div class="story-stats">
+                        <span>⭐ 5.0 Rating</span>
+                        <span>📈 15 months</span>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="avatar">👩</div>
+                        <div class="story-info">
+                            <h3>Neha Gupta</h3>
+                            <p>Event Management</p>
+                        </div>
+                    </div>
+                    <p class="story-text">
+                        "Organized my first event through EmpowerHer. Now I manage 8-10 events monthly!
+                        The platform's credibility made all the difference in landing clients."
+                    </p>
+                    <div class="story-stats">
+                        <span>⭐ 4.9 Rating</span>
+                        <span>📈 10 months</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Register Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Ready to Transform Your Dreams Into Reality?</h2>
+            <p>Join thousands of women who've already started their journey to financial independence and success.</p>
+
+            <div class="cta-stats">
+                <div class="stat">
+                    <h3>50,000+</h3>
+                    <p>Active Women Entrepreneurs</p>
+                </div>
+                <div class="stat">
+                    <h3>₹50 Cr+</h3>
+                    <p>Revenue Generated</p>
+                </div>
+                <div class="stat">
+                    <h3>98%</h3>
+                    <p>Success Rate</p>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <button class="btn primary large" id="registerBtn">Register Now - It's Free!</button>
+                <button class="btn secondary large" id="learnMoreBtn">Learn More</button>
+            </div>
+
+            <p class="cta-mention">💡 Free webinar: "Getting Started with Your Business" - Every Friday at 7 PM IST</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>🌸 EmpowerHer</h3>
+                    <p>Empowering women entrepreneurs worldwide through education, community, and market access.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">f</a>
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="LinkedIn">in</a>
+                        <a href="#" title="Twitter">𝕏</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#categories">All Categories</a></li>
+                        <li><a href="#why">Why Us</a></li>
+                        <li><a href="#stories">Success Stories</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html#faqs">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Report Abuse</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 EmpowerHer. All rights reserved. | Made with 💜 for women entrepreneurs</p>
+                <p>Building a world where every woman entrepreneur can thrive</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

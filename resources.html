@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Guides - EmpowerHer</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .resources-hero {
+            background: linear-gradient(135deg, #F8C8DC 0%, #E6E6FA 100%);
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .resources-hero h1 {
+            font-size: 42px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .resources-hero p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .resources-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px 20px;
+        }
+
+        .resource-section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #d4a5a5;
+            padding-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: #333;
+            margin: 0;
+        }
+
+        .section-header-emoji {
+            font-size: 40px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .guide-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 5px solid #d4a5a5;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .guide-card h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .guide-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .guide-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .guide-list li {
+            padding: 8px 0;
+            color: #555;
+            font-size: 14px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .guide-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .resource-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #d4a5a5 0%, #c9929f 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .resource-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.3);
+        }
+
+        .resource-btn.secondary {
+            background: linear-gradient(135deg, #E6E6FA 0%, #C1D7AE 100%);
+            color: #333;
+        }
+
+        .template-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .template-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .template-icon {
+            font-size: 48px;
+        }
+
+        .template-info h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .template-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .template-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .template-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #fff9f9 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .template-box h4 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .template-box p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .pricing-table thead {
+            background: linear-gradient(135deg, #d4a5a5 0%, #c9929f 100%);
+            color: white;
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .pricing-table tbody tr:hover {
+            background: #fff5f5;
+        }
+
+        .pricing-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #d4a5a5;
+        }
+
+        .tip-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #d4a5a5 0%, #c9929f 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .tip-card h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .tip-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, #F8C8DC 0%, #FFDAB9 100%);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .download-section h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .download-section p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #d4a5a5;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .coming-soon {
+            background: #f0f0f0;
+            color: #999;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .coming-soon:hover {
+            transform: none;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .category-tab {
+            padding: 10px 20px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            color: #333;
+        }
+
+        .category-tab:hover,
+        .category-tab.active {
+            border-color: #d4a5a5;
+            background: linear-gradient(135deg, #d4a5a5 0%, #c9929f 100%);
+            color: white;
+        }
+
+        .branding-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .branding-example {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .branding-demo {
+            width: 200px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .branding-example h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .branding-example p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .checklist {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #d4a5a5;
+        }
+
+        .checklist h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: #d4a5a5;
+            cursor: pointer;
+        }
+
+        .checklist-item label {
+            flex: 1;
+            color: #555;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .resources-hero h1 {
+                font-size: 32px;
+            }
+
+            .section-header h2 {
+                font-size: 24px;
+            }
+
+            .guide-grid,
+            .tips-grid,
+            .template-content,
+            .branding-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .template-section {
+                padding: 25px;
+            }
+
+            .pricing-table th,
+            .pricing-table td {
+                padding: 12px;
+                font-size: 13px;
+            }
+
+            .category-tabs {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h2 class="logo"><a href="index.html">🌸 EmpowerHer</a></h2>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html" class="nav-cta">Join Community</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Resources Hero Section -->
+    <section class="resources-hero">
+        <h1>📚 Learning Resources & Guides</h1>
+        <p>Access free guides, templates, and actionable strategies to help you build, grow, and scale your
+            business. Everything you need to succeed.</p>
+    </section>
+
+    <!-- Main Resources Container -->
+    <div class="resources-container">
+
+        <!-- Business Guides Section -->
+        <div class="resource-section">
+            <div class="section-header">
+                <span class="section-header-emoji">📖</span>
+                <h2>Business Guides by Category</h2>
+            </div>
+
+            <div class="guide-grid">
+                <!-- Home Baking Guide -->
+                <div class="guide-card">
+                    <h3>🎂 Home Baking Starter Guide</h3>
+                    <p>Everything you need to know to start and scale your home baking business from day one.</p>
+                    <ul class="guide-list">
+                        <li>Essential equipment and setup costs breakdown</li>
+                        <li>Finding suppliers and sourcing ingredients</li>
+                        <li>Food safety certifications and regulations</li>
+                        <li>Creating your signature product line</li>
+                        <li>Packaging design and presentation tips</li>
+                        <li>First 90 days action plan</li>
+                    </ul>
+                    <button class="resource-btn secondary" onclick="downloadResource('baking-guide')">Read Guide
+                        →</button>
+                </div>
+
+                <!-- Tailoring Guide -->
+                <div class="guide-card">
+                    <h3>🧵 Tailoring & Boutique Blueprint</h3>
+                    <p>Complete roadmap to launch a successful tailoring and boutique business from home.</p>
+                    <ul class="guide-list">
+                        <li>Choosing the right sewing machine for your budget</li>
+                        <li>Building a fabric and material supplier network</li>
+                        <li>Pricing custom tailoring work correctly</li>
+                        <li>Creating design portfolios and mood boards</li>
+                        <li>Managing orders and timelines</li>
+                        <li>Upselling and cross-selling strategies</li>
+                    </ul>
+                    <button class="resource-btn secondary" onclick="downloadResource('tailoring-guide')">Read Guide
+                        →</button>
+                </div>
+
+                <!-- Gift Hampers Guide -->
+                <div class="guide-card">
+                    <h3>🎁 Gift Hamper Business Handbook</h3>
+                    <p>Step-by-step guide to creating beautiful, profitable gift hamper business.</p>
+                    <ul class="guide-list">
+                        <li>Sourcing products at wholesale prices</li>
+                        <li>Creating stunning package designs</li>
+                        <li>Seasonal business planning and peak periods</li>
+                        <li>Corporate gifting partnerships</li>
+                        <li>Pricing psychology and profitability</li>
+                        <li>Bulk order management systems</li>
+                    </ul>
+                    <button class="resource-btn secondary" onclick="downloadResource('hampers-guide')">Read Guide
+                        →</button>
+                </div>
+
+                <!-- Skincare Guide -->
+                <div class="guide-card">
+                    <h3>💅 Organic Skincare Product Guide</h3>
+                    <p>Complete guide to creating and selling organic skincare products profitably.</p>
+                    <ul class="guide-list">
+                        <li>Natural ingredient sourcing and quality control</li>
+                        <li>Basic formulation recipes and techniques</li>
+                        <li>Compliance and certifications (AYUSH, etc.)</li>
+                        <li>Branding organic skincare products</li>
+                        <li>Online sales strategy and storytelling</li>
+                        <li>Scaling production volume</li>
+                    </ul>
+                    <button class="resource-btn secondary" onclick="downloadResource('skincare-guide')">Read Guide
+                        →</button>
+                </div>
+
+                <!-- Eco-Friendly Guide -->
+                <div class="guide-card">
+                    <h3>♻️ Eco-Friendly Products Business</h3>
+                    <p>Launch a sustainable business that profits while protecting the planet.</p>
+                    <ul class="guide-list">
+                        <li>Sourcing sustainable and biodegradable materials</li>
+                        <li>Certifications and eco-credentials</li>
+                        <li>Pricing sustainable products for profitability</li>
+                        <li>Marketing your environmental mission</li>
+                        <li>Building an eco-conscious brand identity</li>
+                        <li>Partnerships with retailers and resellers</li>
+                    </ul>
+                    <button class="resource-btn secondary" onclick="downloadResource('eco-guide')">Read Guide
+                        →</button>
+                </div>
+
+                <!-- Cloud Kitchen Guide -->
+                <div class="guide-card">
+                    <h3>👨‍🍳 Cloud Kitchen Operations Guide</h3>
+                    <p>Master the art of running a profitable cloud kitchen from home.</p>
+                    <ul class="guide-list">
+                        <li>Kitchen setup and food safety compliance</li>
+                        <li>Building relationships with delivery platforms</li>
+                        <li>Menu optimization and pricing strategy</li>
+                        <li>Food quality consistency and packaging</li>
+                        <li>Time management and peak hour operations</li>
+                        <li>Customer retention and loyalty programs</li>
+                    </ul>
+                    <button class="resource-btn secondary" onclick="downloadResource('cloudkitchen-guide')">Read
+                        Guide →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing & Finance Section -->
+        <div class="resource-section">
+            <div class="section-header">
+                <span class="section-header-emoji">💰</span>
+                <h2>Pricing Templates & Financial Planning</h2>
+            </div>
+
+            <div class="template-section">
+                <div class="template-header">
+                    <span class="template-icon">💵</span>
+                    <div class="template-info">
+                        <h3>Smart Pricing Calculator</h3>
+                        <p>Determine profitability with our easy-to-use pricing templates</p>
+                    </div>
+                </div>
+
+                <p style="color: #666; margin-bottom: 25px;">Choose your business type to access customized pricing
+                    formulas and profit calculators:</p>
+
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Product Type</th>
+                            <th>Suggested Base Cost</th>
+                            <th>Profit Margin Goal</th>
+                            <th>Selling Price Range</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Custom Cake (1kg)</strong></td>
+                            <td>₹200-250</td>
+                            <td>50-60%</td>
+                            <td>₹400-600</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Saree Alteration</strong></td>
+                            <td>Fabric cost</td>
+                            <td>40-50%</td>
+                            <td>₹300-500</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gift Hamper</strong></td>
+                            <td>₹400-600</td>
+                            <td>50-70%</td>
+                            <td>₹800-1500</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Face Cream (50g)</strong></td>
+                            <td>₹50-80</td>
+                            <td>60-80%</td>
+                            <td>₹150-300</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Eco Bags (10 pcs)</strong></td>
+                            <td>₹150-200</td>
+                            <td>50-60%</td>
+                            <td>₹300-500</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Meal Box (Daily)</strong></td>
+                            <td>₹100-150</td>
+                            <td>40-50%</td>
+                            <td>₹200-300</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="background: #fff5f5; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                    <p style="color: #666;">
+                        <strong>💡 Pro Tip:</strong> These are benchmarks from successful sellers. Your costs may
+                        vary based on location, supplier rates, and product quality. Always track actual costs and
+                        adjust prices accordingly.
+                    </p>
+                </div>
+            </div>
+
+            <div class="template-section">
+                <div class="template-header">
+                    <span class="template-icon">📊</span>
+                    <div class="template-info">
+                        <h3>Business Financial Planning</h3>
+                        <p>Templates to track income, expenses, and profitability</p>
+                    </div>
+                </div>
+
+                <div class="template-content">
+                    <div class="template-box">
+                        <h4>📓 Monthly Expense Tracker</h4>
+                        <p>Monitor all business expenses to understand your actual profit margins and reinvestment
+                            needs.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('expense-tracker')">Download
+                            Template</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>💼 Income Statement Template</h4>
+                        <p>Track daily, weekly, and monthly revenue to forecast business growth and plan scaling.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('income-statement')">Download
+                            Template</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>📈 6-Month Financial Projection</h4>
+                        <p>Plan your business growth with realistic financial projections and break-even analysis.</p>
+                        <button class="resource-btn secondary"
+                            onclick="downloadResource('financial-projection')">Download
+                            Template</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>🎯 Goal Setting & Progress Tracker</h4>
+                        <p>Set SMART financial goals and track progress toward monthly and yearly targets.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('goal-tracker')">Download
+                            Template</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>💳 Pricing Strategy Worksheet</h4>
+                        <p>Analyze your cost structure and determine optimal pricing for maximum profitability.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('pricing-worksheet')">Download
+                            Template</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>🛍️ Inventory & Stock Management</h4>
+                        <p>Track inventory levels, reorder points, and storage costs to optimize cash flow.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('inventory-tracker')">Download
+                            Template</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marketing & Growth Section -->
+        <div class="resource-section">
+            <div class="section-header">
+                <span class="section-header-emoji">📣</span>
+                <h2>Marketing Tips & Social Media Strategies</h2>
+            </div>
+
+            <div class="download-section">
+                <h3>🚀 Free Marketing Playbook</h3>
+                <p>Master social media marketing, customer acquisition, and growth strategies with our comprehensive
+                    playbook.</p>
+                <button class="download-btn" onclick="downloadResource('marketing-playbook')">Download Free Marketing
+                    Playbook (PDF)</button>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <h4>Build Your Instagram Presence</h4>
+                    <p><strong>Why:</strong> 80% of customers discover small businesses on Instagram first.</p>
+                    <p><strong>How:</strong> Post 3-4 times weekly with behind-the-scenes content, customer stories,
+                        and product close-ups. Use 15-20 relevant hashtags per post.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <h4>Create Video Content</h4>
+                    <p><strong>Why:</strong> Videos get 10x more engagement than static posts.</p>
+                    <p><strong>How:</strong> Create quick videos showing product creation, unboxing, customer
+                        testimonials, and storage tips. Share on Reels, YouTube Shorts, and TikTok.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <h4>Leverage Customer Testimonials</h4>
+                    <p><strong>Why:</strong> Social proof builds trust and credibility instantly.</p>
+                    <p><strong>How:</strong> Request reviews after delivery. Share customer photos with permission.
+                        Create before/after stories. Offer small discounts for testimonials.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <h4>Run Strategic Giveaways</h4>
+                    <p><strong>Why:</strong> Giveaways expand reach and build engaged follower base.</p>
+                    <p><strong>How:</strong> Monthly giveaways requiring follows, shares, and tags. Partner with 2-3
+                        complementary businesses for joint giveaways.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <h4>Email Marketing Basics</h4>
+                    <p><strong>Why:</strong> Email converts 40x better than social media.</p>
+                    <p><strong>How:</strong> Collect emails through sign-up forms. Send weekly tips, new products, and
+                        exclusive discounts. Use Mailchimp (free for up to 500 contacts).</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <h4>Collaborate with Influencers</h4>
+                    <p><strong>Why:</strong> Micro-influencers deliver high engagement at low cost.</p>
+                    <p><strong>How:</strong> Find nano-influencers (10K-100K followers) in your category. Offer free
+                        products in exchange for honest reviews.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">7</div>
+                    <h4>Master Hashtag Strategy</h4>
+                    <p><strong>Why:</strong> Hashtags increase discoverability by 70%.</p>
+                    <p><strong>How:</strong> Mix 5 high-volume hashtags with 10-15 niche hashtags. Create branded
+                        hashtag (#YourBusinessName). Monitor trending hashtags weekly.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">8</div>
+                    <h4>Build Your WhatsApp Business</h4>
+                    <p><strong>Why:</strong> 95% open rate and direct customer relationships.</p>
+                    <p><strong>How:</strong> Create WhatsApp Business account. Send new product announcements,
+                        limited-time offers, and customer support through WhatsApp.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">9</div>
+                    <h4>Community & Discord Groups</h4>
+                    <p><strong>Why:</strong> Communities create loyal customer base and repeat sales.</p>
+                    <p><strong>How:</strong> Create exclusive Facebook group or Telegram channel. Share tips, offer
+                        exclusive deals to members, foster discussions.</p>
+                </div>
+            </div>
+
+            <div class="template-section" style="margin-top: 40px;">
+                <div class="template-header">
+                    <span class="template-icon">📱</span>
+                    <div class="template-info">
+                        <h3>Ready-to-Use Content Templates</h3>
+                        <p>Copy-paste social media posts, captions, and announcements</p>
+                    </div>
+                </div>
+
+                <div class="template-content">
+                    <div class="template-box">
+                        <h4>📸 Product Launch Posts</h4>
+                        <p>Pre-written captions for announcing new products with proven engagement hooks.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('launch-posts')">View
+                            Templates</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>🎉 Promotional Campaign Scripts</h4>
+                        <p>Ready-to-customize scripts for sales, discounts, flash deals, and seasonal campaigns.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('campaign-scripts')">View
+                            Templates</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>💌 Email Newsletter Templates</h4>
+                        <p>Professional email templates for weekly newsletters, product recommendations, and
+                            announcements.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('email-templates')">View
+                            Templates</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>🤝 Collaboration & Partnership Pitches</h4>
+                        <p>Professional outreach templates when pitching to influencers and potential partners.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('partnership-pitches')">View
+                            Templates</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>⭐ Review & Testimonial Requests</h4>
+                        <p>Follow-up message templates for requesting customer reviews after purchase.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('review-requests')">View
+                            Templates</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>🎯 Hashtag Strategy Guides</h4>
+                        <p>Category-specific hashtag lists curated for each business type on EmpowerHer.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('hashtag-guides')">View
+                            Guides</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Branding & Design Section -->
+        <div class="resource-section">
+            <div class="section-header">
+                <span class="section-header-emoji">🎨</span>
+                <h2>Branding & Design Advice</h2>
+            </div>
+
+            <div class="template-section">
+                <div class="template-header">
+                    <span class="template-icon">🏷️</span>
+                    <div class="template-info">
+                        <h3>Creating Your Brand Identity</h3>
+                        <p>Build a memorable brand that stands out and attracts customers</p>
+                    </div>
+                </div>
+
+                <p style="color: #666; margin-bottom: 20px;">A strong brand identity helps you stand out in a
+                    crowded marketplace. Here's how to build yours:</p>
+
+                <div class="template-content">
+                    <div class="template-box">
+                        <h4>1. Choose Your Brand Name</h4>
+                        <p style="margin-bottom: 10px;"><strong>Tips:</strong></p>
+                        <p style="margin: 8px 0; font-size: 13px;">• Keep it short and memorable (2-3 words max)</p>
+                        <p style="margin: 8px 0; font-size: 13px;">• Make sure domain (.com) and handles (@) are
+                            available</p>
+                        <p style="margin: 8px 0; font-size: 13px;">• Avoid trendy names that may feel dated later</p>
+                        <p style="margin: 8px 0; font-size: 13px;">• Check if name is unique and not trademarked</p>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>2. Define Your Brand Personality</h4>
+                        <p style="margin-bottom: 10px;"><strong>Choose 3-4 words:</strong></p>
+                        <p style="margin: 8px 0; font-size: 13px;">Warm, Professional, Fun, Luxurious, Eco-friendly,
+                            Bold, Minimalist, Creative, Trustworthy</p>
+                        <p style="margin: 15px 0 8px 0; font-size: 13px;"><strong>This guides all branding decisions
+                                (colors, fonts, tone)</strong></p>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>3. Color Palette Selection</h4>
+                        <p style="margin-bottom: 10px;"><strong>Primary Color:</strong> Main brand color (logo, CTA
+                            buttons)</p>
+                        <p style="margin: 8px 0; font-size: 13px;">• Choose a color that evokes your brand
+                            personality</p>
+                        <p style="margin: 15px 0 8px 0;"><strong>Secondary Colors:</strong> 2-3 supporting colors</p>
+                        <p style="margin: 8px 0; font-size: 13px;">• Ensure good contrast for readability</p>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>4. Typography (Fonts)</h4>
+                        <p style="margin-bottom: 10px;"><strong>Select 2 fonts:</strong></p>
+                        <p style="margin: 8px 0; font-size: 13px;">• One bold font for headings (Google Fonts:
+                            Playfair Display, Poppins)</p>
+                        <p style="margin: 8px 0; font-size: 13px;">• One readable font for body text</p>
+                        <p style="margin: 8px 0; font-size: 13px;">• Use consistently across all materials</p>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>5. Logo Design</h4>
+                        <p style="margin-bottom: 10px;"><strong>Options:</strong></p>
+                        <p style="margin: 8px 0; font-size: 13px;">• DIY: Use Canva (free logo maker)</p>
+                        <p style="margin: 8px 0; font-size: 13px;">• Budget: Fiverr/99designs (₹2000-8000)</p>
+                        <p style="margin: 8px 0; font-size: 13px;">• Keep it simple enough to work small or large</p>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>6. Brand Voice & Tone</h4>
+                        <p style="margin-bottom: 10px;"><strong>Define how you communicate:</strong></p>
+                        <p style="margin: 8px 0; font-size: 13px;">• Friendly & approachable vs. Professional &
+                            formal</p>
+                        <p style="margin: 8px 0; font-size: 13px;">• Write a short brand story (2-3 sentences)</p>
+                        <p style="margin: 8px 0; font-size: 13px;">• Use consistent tone in all customer interactions
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-section" style="margin-top: 40px;">
+                <div class="template-header">
+                    <span class="template-icon">💼</span>
+                    <div class="template-info">
+                        <h3>Professional Branding Toolkit</h3>
+                        <p>Design templates and tools for creating professional branded materials</p>
+                    </div>
+                </div>
+
+                <div class="template-content" style="margin-top: 25px;">
+                    <div class="template-box">
+                        <h4>📄 Business Card Design</h4>
+                        <p>Professionally designed business card templates you can customize in Canva.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('business-card-template')">Get
+                            Template</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>📸 Instagram Feed Templates</h4>
+                        <p>Pre-designed Instagram post templates matching your brand (carousel, reels, stories).</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('instagram-templates')">Get
+                            Templates</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>📋 Social Media Profile Banners</h4>
+                        <p>Professional banner templates for Facebook, Instagram, YouTube, and LinkedIn profiles.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('banner-templates')">Get
+                            Templates</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>🎁 Product Packaging Labels</h4>
+                        <p>Print-ready label designs for packaging, stickers, and product boxes.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('label-templates')">Get
+                            Templates</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>📧 Email Signature Template</h4>
+                        <p>Professional email signature with your branding and contact information.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('email-signature')">Get
+                            Template</button>
+                    </div>
+
+                    <div class="template-box">
+                        <h4>📑 Invoice & Receipt Design</h4>
+                        <p>Branded invoices and receipts that reinforce your professional image.</p>
+                        <button class="resource-btn secondary" onclick="downloadResource('invoice-template')">Get
+                            Template</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-section" style="margin-top: 40px;">
+                <div class="template-header">
+                    <span class="template-icon">🎨</span>
+                    <div class="template-info">
+                        <h3>Design Inspiration by Category</h3>
+                        <p>See beautiful brand examples in your business category</p>
+                    </div>
+                </div>
+
+                <div class="branding-showcase">
+                    <div class="branding-example">
+                        <div class="branding-demo"
+                            style="background: linear-gradient(135deg, #F8C8DC 0%, #fff 50%); color: #333;">
+                            🎂
+                        </div>
+                        <h4>Warm & Inviting</h4>
+                        <p>Home Baking, Cloud Kitchen, Gift Hampers</p>
+                        <p style="margin-top: 10px; font-size: 12px; color: #999;">Colors: Blush pink, warm cream,
+                            chocolate brown</p>
+                    </div>
+
+                    <div class="branding-example">
+                        <div class="branding-demo"
+                            style="background: linear-gradient(135deg, #E6E6FA 0%, #fff 50%); color: #333;">
+                            🧵
+                        </div>
+                        <h4>Elegant & Sophisticated</h4>
+                        <p>Tailoring, Skincare, Handicrafts</p>
+                        <p style="margin-top: 10px; font-size: 12px; color: #999;">Colors: Lavender, gold accents,
+                            deep plum</p>
+                    </div>
+
+                    <div class="branding-example">
+                        <div class="branding-demo"
+                            style="background: linear-gradient(135deg, #C1D7AE 0%, #fff 50%); color: #333;">
+                            ♻️
+                        </div>
+                        <h4>Fresh & Eco-Conscious</h4>
+                        <p>Eco-Friendly Products, Plants</p>
+                        <p style="margin-top: 10px; font-size: 12px; color: #999;">Colors: Sage green, natural beige,
+                            forest green</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Operational Excellence Section -->
+        <div class="resource-section">
+            <div class="section-header">
+                <span class="section-header-emoji">⚙️</span>
+                <h2>Operational & Customer Service Excellence</h2>
+            </div>
+
+            <div class="tip-card" style="border-left-width: 5px; border-top-width: 0; margin-bottom: 20px;">
+                <h4 style="margin-bottom: 15px;">✓ Package Like a Pro Checklist</h4>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="package-1">
+                        <label for="package-1">Use branded packaging that reflects your business aesthetic</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="package-2">
+                        <label for="package-2">Include thank you card with discount code for next purchase</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="package-3">
+                        <label for="package-3">Add a small handwritten note personalizing the delivery</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="package-4">
+                        <label for="package-4">Ensure product is well-protected and doesn't shift during transit</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="package-5">
+                        <label for="package-5">Include care/usage instructions or tips for the product</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="package-6">
+                        <label for="package-6">Make unboxing Instagram-worthy (people share pretty packages!)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-card" style="border-left-width: 5px; border-top-width: 0;">
+                <h4 style="margin-bottom: 15px;">✓ Customer Service Excellence Checklist</h4>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="service-1">
+                        <label for="service-1">Respond to customer messages within 24 hours</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="service-2">
+                        <label for="service-2">Provide clear delivery timeline and tracking information</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="service-3">
+                        <label for="service-3">Have a clear return/refund policy and follow it</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="service-4">
+                        <label for="service-4">Follow up after delivery to ensure customer satisfaction</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="service-5">
+                        <label for="service-5">Request reviews and testimonials with personalized messages</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="service-6">
+                        <label for="service-6">Offer loyalty rewards for repeat customers</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="service-7">
+                        <label for="service-7">Collect feedback and continuously improve</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Free Tools & Resources Section -->
+        <div class="resource-section">
+            <div class="section-header">
+                <span class="section-header-emoji">🛠️</span>
+                <h2>Free Tools & Software</h2>
+            </div>
+
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <h3>📱 Content Creation</h3>
+                    <p>Tools to create beautiful social media content without design experience.</p>
+                    <ul class="guide-list">
+                        <li><strong>Canva</strong> - Design Instagram posts, Stories, reels (Free + Pro)</li>
+                        <li><strong>Adobe Express</strong> - Quick template-based designs</li>
+                        <li><strong>Piktochart</strong> - Create shareable infographics</li>
+                        <li><strong>Crello</strong> - Video and animation templates</li>
+                    </ul>
+                </div>
+
+                <div class="guide-card">
+                    <h3>📊 Business Management</h3>
+                    <p>Tools to manage orders, inventory, and customer relationships.</p>
+                    <ul class="guide-list">
+                        <li><strong>Google Sheets</strong> - Free inventory and order tracking</li>
+                        <li><strong>Wave</strong> - Free invoicing and accounting</li>
+                        <li><strong>Zoho CRM</strong> - Manage customer relationships</li>
+                        <li><strong>Google Forms</strong> - Collect customer data and feedback</li>
+                    </ul>
+                </div>
+
+                <div class="guide-card">
+                    <h3>💌 Email Marketing</h3>
+                    <p>Build customer email lists and run marketing campaigns.</p>
+                    <ul class="guide-list">
+                        <li><strong>Mailchimp</strong> - Email marketing (free for 500 contacts)</li>
+                        <li><strong>Brevo</strong> - SMS and email marketing bundled</li>
+                        <li><strong>MailerLite</strong> - Beautiful templates and automation</li>
+                        <li><strong>GetResponse</strong> - Email, webinars, and automation</li>
+                    </ul>
+                </div>
+
+                <div class="guide-card">
+                    <h3>📱 Social Media Management</h3>
+                    <p>Schedule posts and manage multiple platforms efficiently.</p>
+                    <ul class="guide-list">
+                        <li><strong>Buffer</strong> - Schedule Instagram, Facebook, Twitter posts</li>
+                        <li><strong>Later</strong> - Instagram-focused scheduling</li>
+                        <li><strong>Hootsuite</strong> - Multi-platform social media management</li>
+                        <li><strong>Meta Business Suite</strong> - Free Facebook/Instagram scheduler</li>
+                    </ul>
+                </div>
+
+                <div class="guide-card">
+                    <h3>📸 Photo Editing</h3>
+                    <p>Edit and enhance product photos for better quality.</p>
+                    <ul class="guide-list">
+                        <li><strong>Lightroom Mobile</strong> - Professional photo editing (Free + Pro)</li>
+                        <li><strong>Snapseed</strong> - Advanced editing with presets</li>
+                        <li><strong>PhotoScape</strong> - Batch editing and watermarks</li>
+                        <li><strong>GIMP</strong> - Advanced image editor (desktop)</li>
+                    </ul>
+                </div>
+
+                <div class="guide-card">
+                    <h3>🎯 SEO & Website</h3>
+                    <p>Get found online with these free website and SEO tools.</p>
+                    <ul class="guide-list">
+                        <li><strong>Google My Business</strong> - Free local business listing</li>
+                        <li><strong>Wix/Weebly</strong> - Free website builder</li>
+                        <li><strong>Ubersuggest</strong> - Keyword research and competitor analysis</li>
+                        <li><strong>Google Search Console</strong> - Monitor your online visibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>🌸 EmpowerHer</h3>
+                    <p>Empowering women entrepreneurs worldwide through education, community, and market access.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">f</a>
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="LinkedIn">in</a>
+                        <a href="#" title="Twitter">𝕏</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html#categories">Categories</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html#faqs">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Report Abuse</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 EmpowerHer. All rights reserved. | Made with 💜 for women entrepreneurs</p>
+                <p>Building a world where every woman entrepreneur can thrive</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Download Resource Function
+        function downloadResource(resource) {
+            const messages = {
+                'baking-guide': '📖 Home Baking Starter Guide\n\n(PDF download coming soon - Template PDF will be available shortly)',
+                'tailoring-guide': '🧵 Tailoring & Boutique Blueprint\n\n(PDF download coming soon - Complete step-by-step guide)',
+                'hampers-guide': '🎁 Gift Hamper Business Handbook\n\n(PDF download coming soon)',
+                'skincare-guide': '💅 Organic Skincare Product Guide\n\n(PDF download coming soon)',
+                'eco-guide': '♻️ Eco-Friendly Products Business\n\n(PDF download coming soon)',
+                'cloudkitchen-guide': '👨‍🍳 Cloud Kitchen Operations Guide\n\n(PDF download coming soon)',
+                'expense-tracker': '💰 Monthly Expense Tracker\n\n✓ Spreadsheet template ready to download\n\nDownloading to your device...🎉',
+                'income-statement': '💼 Income Statement Template\n\n✓ Spreadsheet ready to customize\n\nDownloading...📊',
+                'financial-projection': '📈 6-Month Financial Projection\n\n✓ Ready-to-use template\n\nDownloading...📈',
+                'goal-tracker': '🎯 Goal Setting & Progress Tracker\n\n✓ Track your monthly and yearly goals\n\nDownloading...🎯',
+                'pricing-worksheet': '💳 Pricing Strategy Worksheet\n\n✓ Determine profit margins\n\nDownloading...💰',
+                'inventory-tracker': '🛍️ Inventory & Stock Management\n\n✓ Track stock and reorder points\n\nDownloading...📦',
+                'marketing-playbook': '🚀 Free Marketing Playbook\n\n✓ Complete social media strategy guide\n\nDownloading...📱',
+                'launch-posts': '📸 Product Launch Posts\n\n✓ 10 ready-to-customize social media captions\n\nDownloading...✍️',
+                'campaign-scripts': '🎉 Promotional Campaign Scripts\n\n✓ Templates for sales, discounts, and seasonal campaigns\n\nDownloading...🎊',
+                'email-templates': '💌 Email Newsletter Templates\n\n✓ Professional email designs\n\nDownloading...📧',
+                'partnership-pitches': '🤝 Collaboration & Partnership Pitches\n\n✓ Professional outreach templates\n\nDownloading...💼',
+                'review-requests': '⭐ Review & Testimonial Requests\n\n✓ Follow-up message templates\n\nDownloading...⭐',
+                'hashtag-guides': '🎯 Hashtag Strategy Guides\n\n✓ Category-specific hashtag lists\n\nDownloading...#️⃣',
+                'business-card-template': '📄 Business Card Design\n\n(Canva template link - Open in Canva to customize)',
+                'instagram-templates': '📸 Instagram Feed Templates\n\n✓ 20+ designs for posts, reels, stories\n\nDownloading...📱',
+                'banner-templates': '📋 Social Media Banners\n\n✓ Facebook, Instagram, YouTube banner designs\n\nDownloading...🎨',
+                'label-templates': '🎁 Product Packaging Labels\n\n✓ Print-ready label designs\n\nDownloading...🏷️',
+                'email-signature': '📧 Email Signature Template\n\n✓ Branded signature ready to use\n\nDownloading...✉️',
+                'invoice-template': '📑 Invoice & Receipt Design\n\n✓ Professional invoice template\n\nDownloading...💳'
+            };
+
+            const message = messages[resource] || `📥 ${resource} is ready to download!\n\nFile is downloading to your device...`;
+            alert(message);
+        }
+
+        // Mobile hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        if (hamburger) {
+            hamburger.addEventListener('click', function () {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+
+        // Initialize demo resources
+        window.addEventListener('load', function () {
+            console.log('📚 EmpowerHer Resources Page Loaded');
+            console.log('All templates and guides are ready for access');
+        });
+    </script>
+
+</body>
+
+</html>

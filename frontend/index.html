@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpowerHer - Women Entrepreneurship Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="logo">🌸 EmpowerHer</h2>
+            <ul class="nav-links">
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#why">Why Us</a></li>
+                <li><a href="#stories">Success Stories</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#community" class="nav-cta">Join Community</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Empower Your Dreams, Build Your Business</h1>
+        <p>Transform your passion into profit. Join thousands of women entrepreneurs building sustainable, home-based businesses with our support and community.</p>
+        <div class="hero-buttons">
+            <button class="btn primary" id="startJourney">Start Your Journey</button>
+            <button class="btn secondary" id="exploreBtn">Explore Opportunities</button>
+        </div>
+    </div>
+</section>
+
+<!-- Business Categories Section -->
+<section id="categories" class="section">
+    <div class="container">
+        <h2 class="section-title">Business Categories</h2>
+        <p class="section-subtitle">Choose from 9 low-investment, high-potential home-based businesses</p>
+        <div class="categories-grid" id="categoriesGrid">
+            <!-- Categories will be loaded from API -->
+        </div>
+    </div>
+</section>
+
+<!-- Why Join Us Section -->
+<section id="why" class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Why Join EmpowerHer?</h2>
+        <p class="section-subtitle">We provide everything you need to succeed</p>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">📚</div>
+                <h3>Skill Development</h3>
+                <p>Learn business fundamentals, accounting, and marketing strategies from experts.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">👥</div>
+                <h3>Community Support</h3>
+                <p>Connect with 10,000+ women entrepreneurs, share experiences, and grow together.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">📢</div>
+                <h3>Marketing Guidance</h3>
+                <p>Get free social media strategies, SEO tips, and customer engagement techniques.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">✨</div>
+                <h3>Branding Assistance</h3>
+                <p>Create a professional brand identity with logo design and packaging guidelines.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">💰</div>
+                <h3>Funding Resources</h3>
+                <p>Access information about microloans, grants, and investment opportunities.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">🚀</div>
+                <h3>Growth Mentorship</h3>
+                <p>Get paired with successful entrepreneurs who will mentor your journey.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Stories Section -->
+<section id="stories" class="section">
+    <div class="container">
+        <h2 class="section-title">Success Stories</h2>
+        <p class="section-subtitle">Real women, real businesses, real transformations</p>
+        <div class="testimonials-grid" id="testimonialGrid">
+            <!-- Testimonials will be loaded from API -->
+        </div>
+    </div>
+</section>
+
+<!-- Resources Section -->
+<section id="resources" class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Learning Resources</h2>
+        <p class="section-subtitle">Guides and tools to help you succeed</p>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-icon">📖</div>
+                <h3>Free Business Guides</h3>
+                <p>Comprehensive guides on starting, pricing, marketing, and scaling your business.</p>
+                <button class="btn secondary-small">Download</button>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-icon">📋</div>
+                <h3>Business Templates</h3>
+                <p>Ready-to-use templates for business plans, invoices, and financial tracking.</p>
+                <button class="btn secondary-small">Access</button>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-icon">📱</div>
+                <h3>Social Media Strategies</h3>
+                <p>Learn Instagram, Facebook, and WhatsApp marketing tactics for your business.</p>
+                <button class="btn secondary-small">Learn</button>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-icon">🌐</div>
+                <h3>Website Builder Support</h3>
+                <p>Free tools and guides to create professional websites without coding.</p>
+                <button class="btn secondary-small">Explore</button>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-icon">💡</div>
+                <h3>Branding Essentials</h3>
+                <p>Logo design tips, packaging ideas, and brand identity guidelines.</p>
+                <button class="btn secondary-small">Discover</button>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-icon">💰</div>
+                <h3>Financial Planning</h3>
+                <p>Budgeting tools, profit calculators, and investment planning guides.</p>
+                <button class="btn secondary-small">Tools</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Community Section -->
+<section id="community" class="section">
+    <div class="container">
+        <h2 class="section-title">Join Our Community</h2>
+        <p class="section-subtitle">Stay connected with updates, opportunities, and support</p>
+        <div class="community-content">
+            <div class="newsletter-box">
+                <h3>Weekly Newsletter</h3>
+                <p>Get business tips, success stories, and exclusive opportunities every week.</p>
+                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn primary">Subscribe</button>
+                </form>
+                <p class="form-note">✓ No spam, unsubscribe anytime</p>
+            </div>
+
+            <div class="community-box">
+                <h3>Community Features</h3>
+                <ul class="community-features">
+                    <li>📧 Weekly business tips and market insights</li>
+                    <li>🎓 Free webinars and training sessions</li>
+                    <li>🤝 Networking with other entrepreneurs</li>
+                    <li>📣 Share and promote your business</li>
+                    <li>💬 Ask questions and get expert advice</li>
+                    <li>🏆 Featured entrepreneur opportunities</li>
+                </ul>
+                <button class="btn primary" id="joinCommunityBtn">Join Community Now</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Details Modal -->
+<div id="detailsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeDetails()">&times;</span>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div id="successModal" class="modal">
+    <div class="modal-content success-modal">
+        <span class="close" onclick="closeSuccessModal()">&times;</span>
+        <div class="success-message">
+            <h2>✨ Welcome to EmpowerHer!</h2>
+            <p id="successMessage"></p>
+            <button class="btn primary" onclick="closeSuccessModal()">Get Started</button>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>🌸 EmpowerHer</h4>
+                <p>Empowering women entrepreneurs to build sustainable home-based businesses.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#stories">Success Stories</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#community">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: hello@empowerher.com</p>
+                <p>Phone: 1-800-EMPOWER</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 EmpowerHer | Women Entrepreneurship Platform | Empowering Dreams, Building Futures</p>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
