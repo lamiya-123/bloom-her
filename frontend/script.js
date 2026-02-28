@@ -1,21 +1,21 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://bloom-her.onrender.com/api';
 
 // Business Categories - will be loaded from API
 let businessDetails = {};
 
 // Load data from API on page load
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     console.log('🌸 EmpowerHer Platform Loading...');
-    
+
     // Load categories and testimonials from backend
     await loadCategories();
     await loadTestimonials();
-    
+
     // Initialize other features
     initializeButtons();
     initializeNavigation();
     setupCardAnimations();
-    
+
     console.log('🌸 EmpowerHer Platform Loaded Successfully!');
     console.log('Welcome to the Women Entrepreneurship Platform');
 });
@@ -25,12 +25,12 @@ async function loadCategories() {
     try {
         const response = await fetch(`${API_URL}/categories`);
         const data = await response.json();
-        
+
         businessDetails = data.reduce((acc, category) => {
             acc[category.id] = category;
             return acc;
         }, {});
-        
+
         const categoriesGrid = document.getElementById('categoriesGrid');
         categoriesGrid.innerHTML = data.map(category => `
             <div class="category-card" onclick="openDetails('${category.id}')">
@@ -41,7 +41,7 @@ async function loadCategories() {
                 <button class="view-details">View Details</button>
             </div>
         `).join('');
-        
+
         console.log('✓ Categories loaded successfully');
     } catch (error) {
         console.error('Error loading categories:', error);
@@ -53,7 +53,7 @@ async function loadTestimonials() {
     try {
         const response = await fetch(`${API_URL}/testimonials`);
         const data = await response.json();
-        
+
         const testimonialGrid = document.getElementById('testimonialGrid');
         testimonialGrid.innerHTML = data.map(testimonial => `
             <div class="testimonial-card">
@@ -69,7 +69,7 @@ async function loadTestimonials() {
                 <p class="testimonial-impact">📈 ${testimonial.impact}</p>
             </div>
         `).join('');
-        
+
         console.log('✓ Testimonials loaded successfully');
     } catch (error) {
         console.error('Error loading testimonials:', error);
@@ -137,7 +137,7 @@ function closeSuccessModal() {
 async function subscribeNewsletter(event) {
     event.preventDefault();
     const email = document.getElementById('newsletter-email').value;
-    
+
     if (email) {
         try {
             const response = await fetch(`${API_URL}/subscribe`, {
@@ -147,9 +147,9 @@ async function subscribeNewsletter(event) {
                 },
                 body: JSON.stringify({ email })
             });
-            
+
             const result = await response.json();
-            
+
             if (response.ok) {
                 showSuccessMessage(`✅ ${result.message} Email: ${email}`);
                 document.getElementById('newsletter-email').value = '';
@@ -179,7 +179,7 @@ function startBusinessJourney(businessName) {
 function initializeButtons() {
     const startJourneyBtn = document.getElementById('startJourney');
     if (startJourneyBtn) {
-        startJourneyBtn.addEventListener('click', function() {
+        startJourneyBtn.addEventListener('click', function () {
             const element = document.getElementById('categories');
             element.scrollIntoView({ behavior: 'smooth' });
         });
@@ -187,7 +187,7 @@ function initializeButtons() {
 
     const exploreBtn = document.getElementById('exploreBtn');
     if (exploreBtn) {
-        exploreBtn.addEventListener('click', function() {
+        exploreBtn.addEventListener('click', function () {
             const element = document.getElementById('categories');
             element.scrollIntoView({ behavior: 'smooth' });
         });
@@ -195,7 +195,7 @@ function initializeButtons() {
 
     const joinCommunityBtn = document.getElementById('joinCommunityBtn');
     if (joinCommunityBtn) {
-        joinCommunityBtn.addEventListener('click', function() {
+        joinCommunityBtn.addEventListener('click', function () {
             const emailInput = document.getElementById('newsletter-email');
             emailInput.focus();
             emailInput.style.borderColor = '#F8C8DC';
@@ -208,7 +208,7 @@ function initializeButtons() {
 function initializeNavigation() {
     const hamburger = document.getElementById('hamburger');
     if (hamburger) {
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function () {
             const navLinks = document.querySelector('.nav-links');
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
             navLinks.style.position = 'absolute';
@@ -243,7 +243,7 @@ function setupCardAnimations() {
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
@@ -259,10 +259,10 @@ function setupCardAnimations() {
 }
 
 // Close modals when clicking outside
-window.addEventListener('click', function(event) {
+window.addEventListener('click', function (event) {
     const detailsModal = document.getElementById('detailsModal');
     const successModal = document.getElementById('successModal');
-    
+
     if (event.target === detailsModal) {
         detailsModal.style.display = 'none';
     }
