@@ -27,7 +27,12 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Playfair Display', serif;
     color: var(--dark-text);
 }
@@ -472,7 +477,8 @@ header {
     margin-top: 40px;
 }
 
-.newsletter-box, .community-box {
+.newsletter-box,
+.community-box {
     background: rgba(230, 230, 250, 0.2);
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -481,13 +487,15 @@ header {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
-.newsletter-box h3, .community-box h3 {
+.newsletter-box h3,
+.community-box h3 {
     font-size: 24px;
     margin-bottom: 15px;
     color: var(--dark-text);
 }
 
-.newsletter-box p, .community-box p {
+.newsletter-box p,
+.community-box p {
     font-size: 15px;
     margin-bottom: 20px;
     color: var(--light-text);
@@ -733,6 +741,7 @@ footer .btn {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -743,6 +752,7 @@ footer .btn {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -754,6 +764,7 @@ footer .btn {
         opacity: 0;
         transform: translateY(50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -761,12 +772,114 @@ footer .btn {
 }
 
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
+}
+
+/* ===== ENHANCED UI ELEMENTS ===== */
+
+/* Improved Input Field Styling */
+input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+    padding: 12px 16px;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: var(--dark-text);
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+}
+
+input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--blush-pink);
+    box-shadow: 0 0 12px rgba(248, 200, 220, 0.4);
+    background: rgba(255, 255, 255, 1);
+}
+
+/* Button State Improvements */
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Card Hover Effects with Gradient Overlay */
+.category-card::after,
+.benefit-card::after,
+.testimonial-card::after,
+.resource-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(248, 200, 220, 0.2), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.category-card:hover::after,
+.benefit-card:hover::after,
+.testimonial-card:hover::after,
+.resource-card:hover::after {
+    opacity: 1;
+}
+
+/* Enhanced Section Spacing */
+.section {
+    padding: 100px 20px;
+}
+
+/* Better Typography */
+h1 {
+    letter-spacing: -0.5px;
+    font-weight: 700;
+}
+
+h2,
+h3 {
+    letter-spacing: -0.3px;
+    font-weight: 600;
+}
+
+/* Improved Link Consistency */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--blush-pink);
+}
+
+/* Better Shadow System */
+.shadow-sm {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.shadow-md {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -969,6 +1082,7 @@ footer .btn {
         padding-left: 25px;
     }
 }
+
 .close {
     position: absolute;
     right: 20px;
