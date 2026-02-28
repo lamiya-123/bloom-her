@@ -11,9 +11,32 @@
         rel="stylesheet">
     <style>
         .register-container {
-            max-width: 700px;
+            max-width: 750px;
             margin: 40px auto;
             padding: 0 20px;
+        }
+
+        .progress-bar {
+            background: #eee;
+            height: 6px;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 33%;
+            background: linear-gradient(90deg, #d4a5a5 0%, #c9929f 100%);
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 25px;
+            font-weight: 500;
         }
 
         .register-form {
@@ -25,18 +48,67 @@
 
         .form-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .form-header h1 {
-            font-size: 28px;
+            font-size: 32px;
             color: #333;
             margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
         }
 
         .form-header p {
-            color: #666;
+            color: #777;
             font-size: 15px;
+        }
+
+        /* Section Styling */
+        .form-section {
+            margin-bottom: 35px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .form-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .section-icon {
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8e6ea;
+            border-radius: 8px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: #999;
+            margin: 0;
+            font-weight: normal;
+            text-transform: none;
+            letter-spacing: normal;
         }
 
         .form-group {
@@ -61,16 +133,21 @@
             font-size: 14px;
         }
 
+        label span.required {
+            color: #e74c3c;
+        }
+
         input,
         select,
         textarea {
             width: 100%;
             padding: 12px;
-            border: 1.5px solid #ddd;
+            border: 2px solid #eee;
             border-radius: 8px;
             font-family: 'Poppins', sans-serif;
             font-size: 14px;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
         }
 
         input:focus,
@@ -78,14 +155,22 @@
         textarea:focus {
             outline: none;
             border-color: #d4a5a5;
-            box-shadow: 0 0 0 3px rgba(212, 165, 165, 0.1);
+            background: #fff8f9;
+            box-shadow: 0 0 0 4px rgba(212, 165, 165, 0.1);
+        }
+
+        input:valid:not(:placeholder-shown),
+        select:valid:not([value=""]) {
+            border-color: #27ae60;
+            background: #f0fdf4;
         }
 
         .form-error {
             color: #e74c3c;
             font-size: 13px;
-            margin-top: 5px;
+            margin-top: 6px;
             display: none;
+            font-weight: 500;
         }
 
         .form-error.show {
@@ -93,51 +178,59 @@
         }
 
         .password-strength {
-            margin-top: 8px;
-            height: 4px;
+            margin-top: 10px;
+            height: 8px;
             background: #eee;
-            border-radius: 2px;
+            border-radius: 4px;
             overflow: hidden;
         }
 
         .strength-bar {
             height: 100%;
             width: 0%;
-            transition: width 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .strength-bar.weak {
             width: 33%;
-            background: #e74c3c;
+            background: linear-gradient(90deg, #e74c3c 0%, #ff6b6b 100%);
         }
 
         .strength-bar.medium {
             width: 66%;
-            background: #f39c12;
+            background: linear-gradient(90deg, #f39c12 0%, #ffa500 100%);
         }
 
         .strength-bar.strong {
             width: 100%;
-            background: #27ae60;
+            background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%);
         }
 
         .strength-text {
             font-size: 12px;
-            margin-top: 4px;
+            margin-top: 6px;
             color: #666;
+            font-weight: 500;
         }
 
         .terms-checkbox {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
-            margin: 25px 0;
+            gap: 12px;
+            margin: 30px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #d4a5a5;
         }
 
         .terms-checkbox input[type="checkbox"] {
-            width: auto;
-            margin-top: 3px;
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
             cursor: pointer;
+            accent-color: #d4a5a5;
+            flex-shrink: 0;
         }
 
         .terms-checkbox label {
@@ -145,12 +238,13 @@
             font-weight: normal;
             font-size: 14px;
             cursor: pointer;
+            color: #555;
         }
 
         .terms-checkbox a {
             color: #d4a5a5;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .terms-checkbox a:hover {
@@ -159,21 +253,27 @@
 
         .btn-register {
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             background: linear-gradient(135deg, #d4a5a5 0%, #c9929f 100%);
             color: white;
             border: none;
             border-radius: 8px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin-top: 10px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .btn-register:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 165, 165, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(212, 165, 165, 0.4);
+        }
+
+        .btn-register:active {
+            transform: translateY(-1px);
         }
 
         .btn-register:disabled {
@@ -184,7 +284,7 @@
 
         .login-link {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 25px;
             font-size: 14px;
             color: #666;
         }
@@ -201,15 +301,17 @@
 
         .benefits-section {
             background: linear-gradient(135deg, #fff5f5 0%, #fff9f9 100%);
-            padding: 30px;
+            padding: 40px;
             border-radius: 12px;
             margin-top: 40px;
+            border: 2px solid #ffe6ec;
         }
 
         .benefits-section h3 {
             font-size: 18px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #333;
+            font-weight: 600;
         }
 
         .benefits-list {
@@ -221,45 +323,146 @@
         .benefit-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-size: 14px;
             color: #555;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .benefit-item:hover {
+            background: #f8e6ea;
+            transform: translateX(4px);
         }
 
         .benefit-item::before {
             content: "✓";
             color: #27ae60;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            display: none;
+            text-align: center;
+            font-weight: 600;
+            border-left: 5px solid #28a745;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
+            .register-container {
+                margin: 20px auto;
+            }
+
             .register-form {
-                padding: 30px 20px;
+                padding: 25px;
+            }
+
+            .form-header h1 {
+                font-size: 26px;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
+                gap: 15px;
             }
 
             .benefits-list {
                 grid-template-columns: 1fr;
             }
+
+            .section-header {
+                gap: 10px;
+            }
+
+            .section-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 15px;
+            }
+
+            .terms-checkbox {
+                flex-direction: row;
+                padding: 12px;
+            }
+
+            .terms-checkbox input[type="checkbox"] {
+                width: 18px;
+                height: 18px;
+            }
+
+            .btn-register {
+                padding: 14px;
+                font-size: 15px;
+            }
+
+            .benefits-section {
+                padding: 25px;
+            }
         }
 
-        .success-message {
-            background: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: none;
-            text-align: center;
-            font-weight: 500;
-        }
+        @media (max-width: 480px) {
+            .register-container {
+                padding: 0 15px;
+            }
 
-        .success-message.show {
-            display: block;
+            .register-form {
+                padding: 20px;
+            }
+
+            .form-header h1 {
+                font-size: 22px;
+            }
+
+            .form-section {
+                margin-bottom: 25px;
+                padding-bottom: 20px;
+            }
+
+            label {
+                font-size: 13px;
+            }
+
+            input,
+            select,
+            textarea {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .btn-register {
+                padding: 12px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -297,90 +500,128 @@
                     <p>Join EmpowerHer and start your entrepreneurial journey today</p>
                 </div>
 
+                <!-- Progress Bar -->
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="currentStep">Step 1 of 3</span>: Personal Information
+                </div>
+
                 <div class="success-message" id="successMessage">
                     ✓ Account created successfully! Redirecting to dashboard...
                 </div>
 
                 <form id="registrationForm">
-                    <!-- Personal Information Section -->
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="fullName">Full Name <span style="color: #e74c3c;">*</span></label>
-                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name"
-                                required>
-                            <div class="form-error" id="fullNameError"></div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address <span style="color: #e74c3c;">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-                            <div class="form-error" id="emailError"></div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number <span style="color: #e74c3c;">*</span></label>
-                            <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required
-                                pattern="[0-9]{10}">
-                            <div class="form-error" id="phoneError"></div>
-                        </div>
-                    </div>
-
-                    <!-- Business Information Section -->
-                    <div class="form-row full">
-                        <div class="form-group">
-                            <label for="businessCategory">Business Category <span
-                                    style="color: #e74c3c;">*</span></label>
-                            <select id="businessCategory" name="businessCategory" required>
-                                <option value="">-- Select a category --</option>
-                                <option value="baking">🎂 Home Baking</option>
-                                <option value="tailoring">🧵 Tailoring & Boutique</option>
-                                <option value="hampers">🎁 Customized Gift Hampers</option>
-                                <option value="skincare">💅 Organic Skincare</option>
-                                <option value="eco">♻️ Eco-Friendly Products</option>
-                                <option value="handicrafts">🎨 Handicrafts</option>
-                                <option value="events">🎉 Event Management</option>
-                                <option value="plants">🌿 Indoor Plants & Decor</option>
-                                <option value="cloudkitchen">👨‍🍳 Cloud Kitchen Services</option>
-                            </select>
-                            <div class="form-error" id="businessCategoryError"></div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="businessName">Business Name <span style="color: #e74c3c;">*</span></label>
-                            <input type="text" id="businessName" name="businessName" placeholder="Your business name"
-                                required>
-                            <div class="form-error" id="businessNameError"></div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="location">Location (City) <span style="color: #e74c3c;">*</span></label>
-                            <input type="text" id="location" name="location" placeholder="Your city" required>
-                            <div class="form-error" id="locationError"></div>
-                        </div>
-                    </div>
-
-                    <!-- Security Section -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="password">Password <span style="color: #e74c3c;">*</span></label>
-                            <input type="password" id="password" name="password" placeholder="Minimum 6 characters"
-                                required minlength="6">
-                            <div class="password-strength">
-                                <div class="strength-bar" id="strengthBar"></div>
+                    <!-- Section 1: Personal Information -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <div class="section-icon">👤</div>
+                            <div>
+                                <div class="section-title">Personal Information</div>
+                                <div class="section-subtitle">Tell us about yourself</div>
                             </div>
-                            <div class="strength-text" id="strengthText"></div>
-                            <div class="form-error" id="passwordError"></div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="confirmPassword">Confirm Password <span style="color: #e74c3c;">*</span></label>
-                            <input type="password" id="confirmPassword" name="confirmPassword"
-                                placeholder="Confirm your password" required>
-                            <div class="form-error" id="confirmPasswordError"></div>
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label for="fullName">Full Name <span class="required">*</span></label>
+                                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name"
+                                    required>
+                                <div class="form-error" id="fullNameError"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com"
+                                    required>
+                                <div class="form-error" id="emailError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required
+                                    pattern="[0-9]{10}">
+                                <div class="form-error" id="phoneError"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Business Information -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <div class="section-icon">🏪</div>
+                            <div>
+                                <div class="section-title">Business Details</div>
+                                <div class="section-subtitle">Describe your business</div>
+                            </div>
+                        </div>
+
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label for="businessCategory">Business Category <span class="required">*</span></label>
+                                <select id="businessCategory" name="businessCategory" required>
+                                    <option value="">-- Select a category --</option>
+                                    <option value="baking">🎂 Home Baking</option>
+                                    <option value="tailoring">🧵 Tailoring & Boutique</option>
+                                    <option value="hampers">🎁 Customized Gift Hampers</option>
+                                    <option value="skincare">💅 Organic Skincare</option>
+                                    <option value="eco">♻️ Eco-Friendly Products</option>
+                                    <option value="handicrafts">🎨 Handicrafts</option>
+                                    <option value="events">🎉 Event Management</option>
+                                    <option value="plants">🌿 Indoor Plants & Decor</option>
+                                    <option value="cloudkitchen">👨‍🍳 Cloud Kitchen Services</option>
+                                </select>
+                                <div class="form-error" id="businessCategoryError"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="businessName">Business Name <span class="required">*</span></label>
+                                <input type="text" id="businessName" name="businessName"
+                                    placeholder="Your business name" required>
+                                <div class="form-error" id="businessNameError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location">Location (City) <span class="required">*</span></label>
+                                <input type="text" id="location" name="location" placeholder="Your city" required>
+                                <div class="form-error" id="locationError"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Security -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <div class="section-icon">🔐</div>
+                            <div>
+                                <div class="section-title">Security</div>
+                                <div class="section-subtitle">Create a secure password</div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password">Password <span class="required">*</span></label>
+                                <input type="password" id="password" name="password" placeholder="Minimum 6 characters"
+                                    required minlength="6">
+                                <div class="password-strength">
+                                    <div class="strength-bar" id="strengthBar"></div>
+                                </div>
+                                <div class="strength-text" id="strengthText"></div>
+                                <div class="form-error" id="passwordError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                                <input type="password" id="confirmPassword" name="confirmPassword"
+                                    placeholder="Confirm your password" required>
+                                <div class="form-error" id="confirmPasswordError"></div>
+                            </div>
                         </div>
                     </div>
 
@@ -404,7 +645,7 @@
 
             <!-- Benefits Section -->
             <div class="benefits-section">
-                <h3>What You Get When You Join EmpowerHer</h3>
+                <h3>🎉 What You Get When You Join EmpowerHer</h3>
                 <div class="benefits-list">
                     <div class="benefit-item">Access to 50,000+ women entrepreneurs</div>
                     <div class="benefit-item">Expert-led training programs</div>
@@ -495,6 +736,39 @@
         // Initialize on page load
         window.addEventListener('load', initializeDemoAccount);
 
+        // Progress Tracking
+        function updateProgress() {
+            const fullName = document.getElementById('fullName').value.trim() ? 1 : 0;
+            const email = document.getElementById('email').value.trim() ? 1 : 0;
+            const phone = document.getElementById('phone').value.trim() ? 1 : 0;
+            const businessCategory = document.getElementById('businessCategory').value ? 1 : 0;
+            const businessName = document.getElementById('businessName').value.trim() ? 1 : 0;
+            const location = document.getElementById('location').value.trim() ? 1 : 0;
+            const password = document.getElementById('password').value ? 1 : 0;
+            const confirmPassword = document.getElementById('confirmPassword').value ? 1 : 0;
+
+            const totalFilled = fullName + email + phone + businessCategory + businessName + location + password + confirmPassword;
+            const progressPercentage = (totalFilled / 8) * 100;
+
+            document.getElementById('progressFill').style.width = Math.min(progressPercentage, 100) + '%';
+
+            // Update step indicator
+            if (totalFilled <= 2) {
+                document.getElementById('currentStep').textContent = 'Step 1 of 3';
+            } else if (totalFilled <= 5) {
+                document.getElementById('currentStep').textContent = 'Step 2 of 3';
+            } else {
+                document.getElementById('currentStep').textContent = 'Step 3 of 3';
+            }
+        }
+
+        // Add progress tracking to all form fields
+        const formFields = document.querySelectorAll('#registrationForm input, #registrationForm select');
+        formFields.forEach(field => {
+            field.addEventListener('input', updateProgress);
+            field.addEventListener('change', updateProgress);
+        });
+
         // Password strength checker
         const passwordInput = document.getElementById('password');
         const strengthBar = document.getElementById('strengthBar');
@@ -515,6 +789,8 @@
                 strengthBar.className = 'strength-bar strong';
                 strengthText.textContent = '✓✓ Strong - Excellent password strength';
             }
+
+            updateProgress();
         });
 
         function checkPasswordStrength(password) {
