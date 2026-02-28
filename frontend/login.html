@@ -165,35 +165,6 @@
             display: block;
         }
 
-        .btn-login {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #d4a5a5 0%, #c9929f 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin-top: 10px;
-        }
-
-        .btn-login:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 165, 165, 0.3);
-        }
-
-        .btn-login:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .btn-login:active {
-            transform: translateY(0);
-        }
-
         .login-footer {
             text-align: center;
             margin-top: 25px;
@@ -281,35 +252,6 @@
         .social-btn:hover {
             border-color: #d4a5a5;
             background: #fff5f5;
-        }
-
-        .loading-spinner {
-            display: none;
-            width: 16px;
-            height: 16px;
-            border: 2px solid #fff;
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 0.6s linear infinite;
-            margin-right: 8px;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .btn-login.loading {
-            position: relative;
-        }
-
-        .btn-login.loading .spinner {
-            display: inline-block;
-        }
-
-        .btn-login.loading span {
-            opacity: 0.7;
         }
 
         @media (max-width: 480px) {
