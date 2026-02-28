@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from frontend folder
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 // Database setup
 const dbPath = path.join(__dirname, 'empowerher.db');
 const db = new sqlite3.Database(dbPath, (err) => {
@@ -88,7 +91,7 @@ function seedDatabase() {
     db.get('SELECT COUNT(*) as count FROM categories', (err, row) => {
         if (row && row.count === 0) {
             console.log('Seeding database with initial data...');
-            
+
             const categories = [
                 {
                     id: 'baking',
@@ -308,7 +311,7 @@ function seedDatabase() {
 
             categories.forEach(cat => {
                 insertCategory.run(
-                    cat.id, cat.name, cat.emoji, cat.description, cat.investment, 
+                    cat.id, cat.name, cat.emoji, cat.description, cat.investment,
                     cat.monthlyEarnings, cat.timeToProfit, cat.rating, cat.businessCount,
                     cat.details, cat.successTip, cat.resources
                 );
@@ -382,12 +385,12 @@ app.get('/api/categories', (req, res) => {
             res.status(500).json({ error: err.message });
             return;
         }
-        
+
         const categories = rows.map(row => ({
             ...row,
             details: JSON.parse(row.details)
         }));
-        
+
         res.json(categories);
     });
 });
@@ -399,12 +402,12 @@ app.get('/api/categories/:id', (req, res) => {
             res.status(500).json({ error: err.message });
             return;
         }
-        
+
         if (!row) {
             res.status(404).json({ error: 'Category not found' });
             return;
         }
-        
+
         row.details = JSON.parse(row.details);
         res.json(row);
     });
@@ -424,13 +427,13 @@ app.get('/api/testimonials', (req, res) => {
 // Subscribe to newsletter
 app.post('/api/subscribe', (req, res) => {
     const { email } = req.body;
-    
+
     if (!email) {
         res.status(400).json({ error: 'Email is required' });
         return;
     }
-    
-    db.run('INSERT INTO subscribers (email) VALUES (?)', [email], function(err) {
+
+    db.run('INSERT INTO subscribers (email) VALUES (?)', [email], function (err) {
         if (err) {
             if (err.message.includes('UNIQUE')) {
                 res.status(400).json({ message: 'Email already subscribed!', error: 'duplicate' });
@@ -439,8 +442,8 @@ app.post('/api/subscribe', (req, res) => {
             }
             return;
         }
-        
-        res.json({ 
+
+        res.json({
             message: 'Successfully subscribed to newsletter!',
             email: email
         });
@@ -451,22 +454,22 @@ app.post('/api/subscribe', (req, res) => {
 // Create business inquiry
 app.post('/api/inquiries', (req, res) => {
     const { email, businessCategory, message } = req.body;
-    
+
     if (!email || !businessCategory) {
         res.status(400).json({ error: 'Email and business category are required' });
         return;
     }
-    
+
     db.run(
         'INSERT INTO inquiries (email, businessCategory, message) VALUES (?, ?, ?)',
         [email, businessCategory, message || ''],
-        function(err) {
+        function (err) {
             if (err) {
                 res.status(500).json({ error: err.message });
                 return;
             }
-            
-            res.json({ 
+
+            res.json({
                 message: 'Inquiry submitted successfully!',
                 id: this.lastID
             });
@@ -499,11 +502,16 @@ app.get('/api/admin/inquiries', (req, res) => {
 
 // Health check
 app.get('/api/health', (req, res) => {
-    res.json({ 
+    res.json({
         status: 'ok',
         message: '🌸 EmpowerHer Backend is running!',
         timestamp: new Date().toISOString()
     });
+});
+
+// Serve frontend index.html for all non-API routes (SPA routing)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 // 404 handler
