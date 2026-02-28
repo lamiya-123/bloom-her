@@ -367,8 +367,8 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="password">Password <span style="color: #e74c3c;">*</span></label>
-                            <input type="password" id="password" name="password" placeholder="Create a strong password"
-                                required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                            <input type="password" id="password" name="password" placeholder="Minimum 6 characters"
+                                required minlength="6">
                             <div class="password-strength">
                                 <div class="strength-bar" id="strengthBar"></div>
                             </div>
@@ -507,26 +507,26 @@
 
             if (strength === 'weak') {
                 strengthBar.className = 'strength-bar weak';
-                strengthText.textContent = 'Weak - Use uppercase, numbers, and special characters';
+                strengthText.textContent = '⚠️ Weak - Add numbers or special characters for better security';
             } else if (strength === 'medium') {
                 strengthBar.className = 'strength-bar medium';
-                strengthText.textContent = 'Medium - Add more variety to your password';
+                strengthText.textContent = '✓ Medium - Good password strength';
             } else if (strength === 'strong') {
                 strengthBar.className = 'strength-bar strong';
-                strengthText.textContent = 'Strong password';
+                strengthText.textContent = '✓✓ Strong - Excellent password strength';
             }
         });
 
         function checkPasswordStrength(password) {
             let strength = 0;
 
-            if (password.length >= 8) strength++;
-            if (/[a-z]/.test(password)) strength++;
-            if (/[A-Z]/.test(password)) strength++;
+            if (password.length >= 6) strength++;
+            if (password.length >= 10) strength++;
+            if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++;
             if (/\d/.test(password)) strength++;
             if (/[@$!%*?&]/.test(password)) strength++;
 
-            if (strength <= 2) return 'weak';
+            if (strength <= 1) return 'weak';
             if (strength <= 3) return 'medium';
             return 'strong';
         }
@@ -589,9 +589,8 @@
 
             // Validate Password
             const password = document.getElementById('password').value;
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-            if (!password || !passwordRegex.test(password)) {
-                showError('passwordError', 'Password must be at least 8 characters with uppercase, lowercase, number, and special character');
+            if (!password || password.length < 6) {
+                showError('passwordError', 'Password must be at least 6 characters');
                 isValid = false;
             }
 
